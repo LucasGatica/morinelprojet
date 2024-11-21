@@ -1,0 +1,3027 @@
+@charset "UTF-8";
+
+/*
+**	Theme Name: Czr Studio
+**	Author: Firebrains
+**	Author URI: https://firebrains.com.br/
+**	Description: 
+**	Version: 1.0
+**	License: GNU General Public License v2 or later
+**	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+**	Text Domain: czrstudio
+**	
+**	This theme, like WordPress, is licensed under the GPL.
+**	Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import url('assets/css/font.css');
+@import url('assets/css/locomotive.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'CS', sans-serif !important;
+}
+html, body {
+    font-size: 1.11vw;
+    min-height: 100vh;
+}
+body {
+    background-color: white;
+    transition: all 0.4s;
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+body.dark {
+    background-color: black;
+}
+body.gray {
+    background-color: #F2F2F2;
+}
+body.white-page {
+    background-color: #ffffff;
+}
+body.modal {
+    overflow: hidden;
+}
+.no-scroll {
+	-webkit-overflow-style: none;
+	-moz-overflow-style: none;
+	-ms-overflow-style: none;
+	-o-overflow-style: none;
+	scrollbar-width: none;
+}
+.no-scroll::-webkit-scrollbar {
+	display: none;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 7rem;
+}
+
+.button {
+    background-color: white;
+    width: 100%;
+    max-width: 24rem;
+    height: 5rem;
+    position: relative;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    line-height: 1rem;
+    border: 0;
+    outline: 0;
+}
+.button.button-black {
+    background-color: black;
+    color: white;
+}
+body.dark .button.button-black {
+    background-color: white;
+    color: black;
+}
+.button span {
+    width: 100%;
+    float: left;
+    white-space: nowrap;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+.button:hover span {
+    width: 0;
+}
+.button svg {
+    width: 3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1.3rem;
+    margin-right: 1.8rem;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+.button:hover svg {
+    opacity: 1;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+}
+
+header {
+    background-color: rgba(255,255,255,0.95);
+    width: 100vw;
+    height: 9.5rem;
+    position: absolute;
+    float: left;
+    z-index: 9;
+    transition: all 0.4s;
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+}
+body.dark header {
+    background-color: rgba(0,0,0,0.95);
+}
+body header.otiokaio {
+    background-color: rgba(0,0,0,0.95);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+}
+body:not(.dark) header.otiokaio {
+    background-color: rgba(255,255,255,0.95);
+}
+body header.otiokaio:not(.min) {
+    background-color: transparent;
+}
+body.single-projeto header {
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+}
+header.min {
+    height: 5rem;
+}
+body.menu header,
+body.menu header.min {
+    height: 5rem;
+}
+header .logo {
+    height: 1rem;
+    color: black;
+    float: left;
+    margin-top: 4.25rem;
+    transition: all 0.4s;
+}
+body.dark header .logo {
+    color: white;
+}
+header.min .logo {
+    margin-top: 2rem;
+}
+header div.translate {
+    float: left;
+    height: 2.5rem;
+    padding: 0.25rem 1rem;
+    margin: 0 2.5rem 0 0;
+}
+header div.translate a {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    color: #999999;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+header div.translate a:hover,
+header div.translate a.active {
+    color: black;
+}
+body.dark header div.translate a:hover,
+body.dark header div.translate a.active {
+    color: white;
+}
+header div.menu-main {
+    background-color: black;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 3.5rem;
+    margin-right: 7rem;
+    float: right;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+header div.menu-main.open {
+    cursor: default;
+}
+body.menu header div.menu-main:not(.close) {
+    /* transform: scale(120); */
+    margin-top: 0;
+    margin-right: 0;
+    width: 100vw;
+    height: 100vw;
+}
+header.min div.menu-main {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 1.6rem;
+}
+header div.menu-main:hover {
+    transform: scale(1.2);
+    position: absolute;
+    z-index: 9;
+}
+body.dark header div.menu-main {
+    background-color: white;
+}
+
+main {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+section h2.title {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.125rem;
+    transition: color 0.4s;
+}
+section h2.title::before {
+    content: '';
+    background-color: black;
+    width: 1.125rem;
+    height: 1.125rem;
+    float: left;
+    margin-right: 0.75rem;
+    transition: all 0.4s;
+}
+body.dark section h2.title {
+    color: white;
+}
+body.dark section h2.title::before {
+    background-color: white;
+}
+
+section.hero {
+    width: 100%;
+    position: relative;
+    float: left;
+    padding: 14.375rem 0 0 0;
+}
+section.hero address {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-weight: 700;
+}
+section.hero address .base {
+    width: 100%;
+    height: 1.6rem;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+section.hero address .base > span {
+    width: 100%;
+    float: left;
+    margin-top: 1.6rem;
+    opacity: 0;
+    transition: margin-top 0.4s, opacity 0.4s;
+    transition-delay: 0.4s;
+}
+section.hero address.is-inview .base > span {
+    margin-top: 0;
+    opacity: 1;
+}
+/* section.hero address .base span.letter {
+    margin-top: 1.6rem;
+    transition: all 0.4s;
+}
+section.hero address.is-inview .base span.letter {
+    margin-top: 0;
+} */
+section.hero h2 {
+    width: 100%;
+    float: left;
+    margin: 2.3125rem 0 0 0;
+    color: black;
+    font-size: 6rem;
+    line-height: 5.5rem;
+    font-weight: normal;
+}
+.effect > span {
+    height: 6.9rem;
+    float: left;
+    overflow: hidden;
+}
+.effect > span span.letter {
+    margin: 6.2rem 0 0 0;
+    opacity: 0;
+    transition: margin 0.4s, opacity 0.4s;
+    /* transition-delay: 0.8s; */
+}
+.effect:not([data-type="line"]).is-inview > span span.letter {
+    margin: 0;
+    opacity: 1;
+}
+.effect[data-type="line"] > span.is-inview span.letter {
+    margin: 0;
+    opacity: 1;
+}
+section.hero div.scroll {
+    width: 0.125rem;
+    height: 4rem;
+    position: relative;
+    float: left;
+    margin-top: 5.1875rem;
+    overflow: hidden;
+}
+section.hero div.scroll::before {
+    content: '';
+    background-color: black;
+    width: 0.125rem;
+    height: 0;
+    float: left;
+    animation: scroll ease-in infinite 1.5s;
+}
+@keyframes scroll {
+    0% {
+        margin-top: 0;
+        height: 0;
+    } 33% {
+        margin-top: 0;
+        height: 100%;
+    } 66% {
+        margin-top: 4rem;
+        height: 0;
+    }
+}
+section.hero div.social {
+    max-width: 6rem;
+    float: right;
+    margin: 1.375rem 0 0 0;
+}
+section.hero div.social a {
+    height: 1.9375rem;
+    margin: 0.125rem 0;
+    float: right;
+    position: relative;
+    transition: all 0.4s;
+    color: #666666;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    text-decoration: none;
+    line-height: 1.9375rem;
+}
+section.hero div.social a:hover {
+    color: black;
+}
+section.hero div.social a:after {
+    content: '';
+    background-color: transparent;
+    width: 0;
+    height: 0.0625rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 50%;
+    transition: all 0.4s;
+}
+section.hero div.social a:hover:after {
+    background-color: #666666;
+    width: 100%;
+    margin-left: 0;
+}
+
+section.projects {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    float: left;
+    padding: 3.25rem 0 0 0;
+}
+section.projects h2 {
+    padding-left: 13.5rem;
+    transform: translateY(2rem);
+}
+section.projects .section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    left: 0;
+    padding-top: 6rem !important;
+}
+section.projects .cards {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+section.projects .cards .item {
+    width: 71.5rem;
+    height: 100%;
+    position: relative;
+    float: left;
+    margin: 0 0 0 6.5rem;
+}
+section.projects .cards .item:first-of-type {
+    margin-left: 7rem;
+}
+section.projects .cards .item:last-of-type {
+    margin-right: 7rem;
+}
+section.projects .cards .item .img {
+    background-position: center;
+    background-size: cover;
+    width: 65rem;
+    height: 35.5rem;
+    float: left;
+    margin: 0 0 0 6.5rem;
+    display: flex;
+    align-items: center;
+}
+section.projects .cards .item .img div.texts {
+    margin: 0 0 0 -6.5rem;
+}
+section.projects .cards .item .texts {
+    width: 100%;
+    float: left;
+}
+section.projects .cards .item .texts span.number {
+    width: 100%;
+    float: left;
+    color: black;
+}
+section.projects .cards .item .texts h3 {
+    width: 100%;
+    max-width: 6.5rem;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.625rem;
+    color: black;
+    font-weight: 500;
+    font-size: 6rem;
+    line-height: 6rem;
+    /* -webkit-text-stroke: 0.0325rem white; */
+    /* -webkit-text-fill-color: black; */
+    white-space: nowrap;
+}
+section.projects .cards .item .texts div.title {
+    width: 100%;
+    float: left;
+    margin-left: 6.5rem;
+    margin-top: -6.53rem;
+    overflow: hidden;
+}
+section.projects .cards .item .texts div.title span {
+    width: 100%;
+    overflow: hidden;
+    margin-left: -6.45rem;
+    float: left;
+    color: white;
+    font-weight: 500;
+    font-size: 6rem;
+    line-height: 6rem;
+    /* -webkit-text-stroke: 0.0325rem white;
+    -webkit-text-fill-color: transparent; */
+    mix-blend-mode: difference;
+}
+section.projects .button {
+    width: 12.5rem;
+    margin-top: 2.75rem;
+    transition: all 0.5s;
+}
+section.projects .button:hover {
+    width: 24rem;
+}
+
+section.phrase {
+    width: 100%;
+    position: relative;
+    float: left;
+    padding: 10rem 0;
+}
+section.phrase h2 {
+    width: 100%;
+    float: left;
+    color: #444;
+    font-size: 6rem;
+    line-height: 7.2rem;
+    font-weight: normal;
+}
+section.phrase h2 > span {
+    width: 100%;
+    height: 7.4rem;
+    float: left;
+    overflow: hidden;
+}
+section.phrase h2 > span span.letter {
+    margin-top: 7.4rem;
+    opacity: 0;
+    transition: all 0.4s;
+}
+section.phrase h2 > span.base.is-inview span.letter {
+    margin-top: 0;
+    opacity: 1;
+}
+section.phrase h2 > span > span strong {
+    font-style: normal;
+    font-weight: normal;
+    color: black;
+}
+body.dark section.phrase h2 {
+    color: rgb(216, 216, 216);
+}
+body.dark section.phrase h2 > span > span strong {
+    color: white;
+}
+
+section.otiokaio {
+    width: 100%;
+    position: relative;
+    float: left;
+    padding: 1.6875rem 0 12rem 0;
+}
+section.otiokaio h3.text {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin: 2.6875rem 0 3rem 0;
+}
+body.dark section.otiokaio h3.text > span {
+    color: white;
+    transition: all 0.2s;
+    transition-delay: 0s;
+}
+section.otiokaio h3.text > span {
+    width: 100%;
+    height: 2.7rem;
+    float: left;
+    overflow: hidden;
+}
+section.otiokaio h3.text > span span.letter {
+    margin-top: 2.7rem;
+    transition: margin-top 0.4s;
+    opacity: 0;
+}
+section.otiokaio h3.text.is-inview > span span.letter {
+    margin-top: 0;
+    opacity: 1;
+}
+section.otiokaio .base-button {
+    width: 11rem;
+    position: relative;
+    float: left;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s, margin-top 0.5s;
+    transition-delay: 2.9s;
+    margin-top: 2.5rem;
+}
+section.otiokaio .base-button .button {
+    transition: all 0.5s;
+}
+section.otiokaio .base-button .button:hover {
+    width: 17rem;
+}
+section.otiokaio div.is-inview > .base-button {
+    opacity: 1;
+    margin-top: 0;
+}
+section.otiokaio span.text {
+    width: 17.5rem;
+    float: right;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.4063rem;
+    /* opacity: 0; */
+    transition: opacity 0.4s, margin-top 0.5s;
+    transition-delay: 3s;
+    margin-top: 2.5rem;
+}
+body.dark section.otiokaio span.text {
+    color: rgb(216, 216, 216);
+}
+section.otiokaio div.is-inview > span.text {
+    opacity: 1;
+    margin-top: -0.1875rem;
+}
+section.otiokaio .img {
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 27rem;
+    float: left;
+    transition: background-size 0.4s, transform 0.5s ease-in-out 2.8s, opacity 0.4s ease-in-out 2.8s;
+    opacity: 0;
+    transform: translateY(4rem);
+}
+section.otiokaio .img:hover {
+    background-size: 110%;
+}
+section.otiokaio .img.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    width: 100%;
+    margin: 5.9375rem 0 0 0;
+    padding: 0 0 5.9375rem 0;
+    float: left;
+    position: relative;
+    z-index: 3;
+}
+footer h2 {
+    width: 100%;
+    float: left;
+    font-size: 6rem;
+    line-height: 6rem;
+    color: black;
+}
+footer h2.thin {
+    font-size: 7.5rem;
+    font-weight: 300;
+}
+body.dark footer h2 {
+    color: white;
+}
+footer h2 > span {
+    width: 100%;
+    height: 6.55rem;
+    float: left;
+    overflow: hidden;
+}
+footer h2 > span > span {
+    width: 100%;
+    float: left;
+    margin-top: 6rem;
+    text-decoration: underline;
+    -webkit-text-decoration-color: #000;
+    -moz-text-decoration-color: #000;
+    text-decoration-color: #000;
+    transition: all 0.4s;
+}
+footer h2:hover > span > span {
+    -webkit-text-decoration-color: white;
+    -moz-text-decoration-color: white;
+    text-decoration-color: white;
+}
+footer h2.is-inview > span > span {
+    margin-top: 0;
+}
+footer {
+    color: black;
+}
+body.dark footer {
+    color: white;
+}
+footer span.desc {
+    width: 100%;
+    float: left;
+    margin-top: 1.8125rem;
+    line-height: 1.375rem;
+    color: #DDD;
+    font-weight: 300;
+}
+footer div.links:nth-child(1) {
+    width: 4.5rem;
+}
+footer div.links:nth-child(2) {
+    width: 17.5rem;
+}
+footer div.links span.title {
+    width: 100%;
+    float: left;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+footer div.links a.link,
+footer div.links span.text {
+    width: 100%;
+    float: left;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    text-decoration: none;
+    font-weight: 300;
+}
+footer div.links span.text a {
+    font-weight: 700;
+    text-decoration: none;
+}
+footer a {
+    transition: all 0.4s;
+    color: black;
+}
+footer a:hover {
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+body.dark footer a {
+    color: white;
+}
+body.dark footer a:hover {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+footer .bottom {
+    margin-top: 8rem;
+}
+footer span.credits {
+    color: rgba(0,0,0,0.50);
+    float: left;
+    margin-right: 2.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.3125rem;
+}
+body.dark footer span.credits {
+    color: rgba(255,255,255,0.50);
+}
+footer span.privacy {
+    float: left;
+    font-size: 0.9375rem;
+    line-height: 1.3125rem;
+}
+footer span.privacy a {
+    color: rgba(0,0,0,0.50);
+    text-decoration: none;
+}
+footer span.privacy a:hover {
+    color: black !important;
+}
+body.dark footer span.privacy a {
+    color: rgba(255,255,255,0.50);
+}
+body.dark footer span.privacy a:hover {
+    color: white !important;
+}
+footer .item-title {
+    width: 7.1875rem;
+    float: left;
+    color: black;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+}
+footer .item-value {
+    width: calc(100% - 7.1875rem);
+    float: left;
+    color: black;
+    font-size: 6rem;
+    line-height: 6rem;
+    font-weight: 300;
+}
+body.dark footer .item-title,
+body.dark footer .item-value {
+    color: white;
+}
+
+div.menu {
+    background-color: black;
+    width: 100vw;
+    min-height: 100vh;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+body.dark div.menu {
+    background-color: white;
+}
+div.menu .top {
+    height: 9.5rem;
+}
+div.menu .logo {
+    height: 1rem;
+    color: white;
+    float: left;
+    transition: all 0.4s;
+}
+body.dark div.menu .logo {
+    color: black;
+}
+div.menu div.translate {
+    float: left;
+    height: 2.5rem;
+    padding: 0.25rem 1rem;
+}
+div.menu div.translate a {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    color: #999999;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+div.menu div.translate a:hover,
+div.menu div.translate a.active {
+    color: rgb(255, 255, 255);
+}
+body.dark div.menu div.translate a:hover,
+body.dark div.menu div.translate a.active {
+    color: black;
+}
+div.menu div.menu-main {
+    background-color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    float: right;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+body.dark div.menu div.menu-main {
+    background-color: black;
+}
+div.menu div.menu-main.open {
+    cursor: default;
+}
+div.menu div.menu-main:hover {
+    transform: scale(1.2);
+}
+div.menu .content {
+    width: 100%;
+    min-height: calc(100vh - 9.5rem);
+    position: relative;
+    float: left;
+    color: white;
+}
+body.dark div.menu .content {
+    color: black;
+}
+div.menu .content ul {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 2rem;
+    opacity: 0;
+}
+div.menu.open .content ul {
+    padding-top: 0;
+    opacity: 1;
+}
+div.menu .content ul li {
+    width: 100%;
+    float: left;
+    font-size: 6rem;
+    line-height: 6rem;
+    margin: 0.25rem 0;
+    transform: translateX(-6rem);
+    opacity: 0;
+    transition: all 0.4s;
+    transition-delay: 0s;
+}
+div.menu.open .content ul li {
+    transform: translateY(0);
+    opacity: 1;
+}
+div.menu .content ul li a {
+    color: #4B4B4B;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+div.menu .content ul li a:hover {
+    color: #ffffff;
+}
+body.dark div.menu .content ul li a:hover {
+    color: black;
+}
+div.menu div.social {
+    max-width: 6rem;
+    float: right;
+    opacity: 0;
+    transform: translateX(-6rem);
+    transition: all 0.4s;
+    transition-delay: 0s;
+}
+div.menu.open div.social {
+    transform: translateX(0);
+    opacity: 1;
+}
+div.menu div.social a {
+    height: 1.9375rem;
+    margin: 0.125rem 0;
+    float: right;
+    position: relative;
+    transition: all 0.4s;
+    color: #666666;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    text-decoration: none;
+    line-height: 1.9375rem;
+}
+div.menu div.social a:hover {
+    color: rgb(255, 255, 255);
+}
+body.dark div.menu div.social a:hover {
+    color: rgb(255, 255, 255);
+}
+div.menu div.social a:after {
+    content: '';
+    background-color: transparent;
+    width: 0;
+    height: 0.0625rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 50%;
+    transition: all 0.4s;
+}
+div.menu div.social a:hover:after {
+    background-color: #666666;
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Projects List */
+
+section.projects-list {
+    width: 100%;
+    float: left;
+    padding: 14.375rem 0 17.125rem 0;
+}
+section.projects-list span.text {
+    font-weight: 500;
+}
+section.projects-list ul {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 9.125rem 0 0 0;
+    border-top: 0.125rem solid #999999;
+}
+section.projects-list ul li {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+section.projects-list ul li:hover {
+    z-index: 2;
+}
+section.projects-list ul li div.in {
+    width: 100%;
+    min-height: 15rem;
+    float: left;
+    border-bottom: 0.125rem solid #999999;
+}
+section.projects-list ul li div.in span.number {
+    width: 100%;
+    max-width: 4.0625rem;
+    float: left;
+    margin-right: 8.75rem;
+}
+section.projects-list ul li div.in span.type {
+    width: auto;
+    float: left;
+    transition: all 0.4s;
+    opacity: 1;
+}
+section.projects-list ul li:hover div.in span.type {
+    opacity: 0;
+}
+section.projects-list ul li div.in span.type > span {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+section.projects-list ul li div.in .img {
+    background-size: cover;
+    background-position: center;
+    width: calc(100% - 13rem);
+    height: 15rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    margin-left: 5.5rem;
+    opacity: 0;
+    transform: translate(-3rem, 0);
+    z-index: 2;
+    transition: all 0.4s;
+    display: flex;
+    align-items: center;
+}
+section.projects-list ul li div.in .img div.title {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    margin-top: -1.7rem;
+    transition: all 0.4s;
+}
+section.projects-list ul li div.in .img div.title span {
+    width: 100%;
+    float: left;
+    color: transparent;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 6rem;
+    margin-left: -5.5rem;
+    position: relative;
+    z-index: 1;
+    /* -webkit-text-stroke: 0.0325rem white;
+    -webkit-text-fill-color: transparent; */
+    mix-blend-mode: difference;
+    color: white;
+    display: none;
+    transform: translate(3rem, 0);
+    transition: all 0.4s;
+    text-transform: inherit;
+}
+@media screen and (min-width: 992px){
+    section.projects-list ul li:hover div.in .img {
+        height: 35.5rem;
+        margin-top: -9.125rem;
+        transform: translate(0,0);
+        opacity: 1;
+    }
+    section.projects-list ul li:hover div.in .img div.title {
+        margin-top: -3.9rem;
+    }
+    section.projects-list ul li div.in .img div.title span {
+        display: block;
+    }
+    section.projects-list ul li:hover div.in .img div.title span {
+        transform: translate(0,0);
+    }
+}
+section.projects-list ul li div.in span {
+    margin-top: 1.625rem;
+    color: rgba(0,0,0,0.4);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 0.875rem;
+    position: relative;
+    z-index: 1;
+}
+section.projects-list ul li div.in h3 {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 6rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+    -webkit-text-stroke: 0.0325rem white;
+    -webkit-text-fill-color: black;
+}
+
+section.page-otiokaio-hero {
+    width: 100%;
+    /* height: 100vh; */
+    height: 49rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+section.page-otiokaio-hero h2 {
+    font-size: 24.8125rem;
+    font-weight: 300;
+    color: white;
+    white-space: nowrap;
+    cursor: default;
+    position: relative;
+    z-index: 2;
+}
+section.page-otiokaio-hero h2.pt {
+    font-size: 20.8125rem;
+}
+body.translatepress-en_US section.page-otiokaio-hero h2 {
+    font-size: 19.8125rem;
+}
+section.page-otiokaio-hero .img {
+    width: 15.4375rem;
+    height: 15.4375rem;
+    position: absolute;
+    z-index: 11;
+    border-radius: 100%;
+    /* overflow: hidden; */
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.4s;
+    box-shadow: 0 0 50px 80px black;
+    z-index: 1;
+    /* transition: all 0.05s; */
+}
+section.page-otiokaio-hero .img .overflow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 100%;
+}
+section.page-otiokaio-hero .img:after {
+    content: '';
+    background-image: radial-gradient(circle, transparent, black 57%, black 100%);
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    margin-top: -10%;
+    margin-left: -10%;
+}
+section.page-otiokaio-hero .img.active {
+    transform: scale(1);
+    opacity: 1;
+}
+section.page-otiokaio-hero .img img {
+    max-width: 100vw;
+    min-height: 49rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+section.page-otiokaio-where {
+    width: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    padding-top: 6.9375rem;
+}
+section.page-otiokaio-where .swiper {
+    overflow: hidden;
+}
+section.page-otiokaio-where h3 {
+    width: 100%;
+    float: left;
+    color: white;
+    margin-top: 0.75rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+}
+section.page-otiokaio-where .text {
+    color: #B7B7B7;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: 500;
+    margin-top: 1.9375rem;
+}
+section.page-otiokaio-where .swiper {
+    margin-top: 3.75rem;
+    height: 44.5625rem;
+}
+section.page-otiokaio-where .swiper-wrapper {
+    -webkit-transition-timing-function: linear!important;
+    transition-timing-function: linear!important;
+}
+section.page-otiokaio-where .swiper img,
+section.page-otiokaio-where .swiper video {
+    width: 100%;
+    border-radius: 0.625rem;
+}
+
+section.page-otiokaio-watch {
+    width: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+section.page-otiokaio-watch h3 {
+    width: 100%;
+    float: left;
+    margin-top: 0.75rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    color: #000;
+    transition: all 0.4s;
+}
+body.dark section.page-otiokaio-watch h3 {
+    color: white;
+}
+section.page-otiokaio-where .social a,
+section.page-otiokaio-watch .social a {
+    float: left;
+    height: 1.9375rem;
+    color: #333;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 1.5rem;
+    position: relative;
+    line-height: 1.9375rem;
+    transition: all 0.4s;
+    text-decoration: none;
+    margin-top: 2.0625rem;
+}
+body.dark section.page-otiokaio-where .social a,
+body.dark section.page-otiokaio-watch .social a {
+    color: #B7B7B7;
+}
+section.page-otiokaio-where .social a:hover,
+section.page-otiokaio-watch .social a:hover {
+    color: #000;
+}
+body.dark section.page-otiokaio-where .social a:hover,
+body.dark section.page-otiokaio-watch .social a:hover {
+    color: white;
+}
+section.page-otiokaio-where .social a:after,
+section.page-otiokaio-watch .social a:after {
+    content: '';
+    background-color: transparent;
+    width: 0;
+    height: 0.0625rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 50%;
+    transition: all 0.4s;
+}
+section.page-otiokaio-where .social a:hover:after,
+section.page-otiokaio-watch .social a:hover:after {
+    background-color: #C4C4C4;
+    width: 100%;
+    margin-left: 0;
+}
+section.page-otiokaio-watch .swiper {
+    margin-top: 3.75rem;
+}
+section.page-otiokaio-watch img {
+    width: 100%;
+    height: 28.625rem;
+}
+section.page-otiokaio-watch .swiper-wrapper {
+    -webkit-transition-timing-function: linear!important;
+    transition-timing-function: linear!important;
+}
+
+section.page-otiokaio-playlist {
+    width: 100%;
+    min-height: 49rem;
+    float: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+section.page-otiokaio-playlist h3 {
+    width: 100%;
+    float: left;
+    color: #000;
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    transition: all 0.4s;
+}
+body.dark section.page-otiokaio-playlist h3 {
+    color: white;
+}
+section.page-otiokaio-playlist div.in {
+    width: 100%;
+    height: 23.3125rem;
+    float: left;
+    position: relative;
+}
+section.page-otiokaio-playlist div.in > div.img {
+    background-position: center;
+    background-size: cover;
+    width: 23.3125rem;
+    height: 23.3125rem;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+section.page-otiokaio-playlist div.in > div.img .play {
+    width: 9.1875rem;
+    height: 3.5rem;
+    position: relative;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+section.page-otiokaio-playlist div.in > div.img .play .play-button {
+    background-color: rgba(255,255,255,0.5);
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 8px;
+    margin-left: calc(50% - 1.25rem);
+    padding: 0.95rem 0 0 1.0625rem;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    transition: all 0.4s;
+}
+section.page-otiokaio-playlist div.in:hover > div.img .play .play-button {
+    background-color: white;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 1.1875rem 0 0 1.4375rem;
+    color: black;
+    margin-top: 0;
+    margin-left: 0;
+}
+section.page-otiokaio-playlist div.in > div.img .play .play-button svg {
+    height: 0.625rem;
+    float: left;
+    color: rgba(0,0,0,0.5);
+    transition: all 0.2s;
+}
+section.page-otiokaio-playlist div.in:hover > div.img .play .play-button svg {
+    height: 1rem;
+    color: black;
+}
+section.page-otiokaio-playlist div.in > div.img .play span {
+    float: left;
+    overflow: hidden;
+    transition: all 0.4s;
+    white-space: nowrap;
+    color: white;
+    margin-left: 0.5625rem;
+    opacity: 0;
+    transform: translateX(-2rem);
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+section.page-otiokaio-playlist div.in:hover > div.img .play span {
+    opacity: 1;
+    transform: translateX(0);
+}
+section.page-otiokaio-playlist div.in > div.img:nth-child(1){
+    z-index: 3;
+    left: 0;
+}
+section.page-otiokaio-playlist div.in > div.img:nth-child(2){
+    z-index: 2;
+    right: 42px;
+    transform: scale(0.8);
+    transform-origin: right;
+    -webkit-filter: blur(0.1875rem);
+    filter: blur(0.375rem);
+}
+section.page-otiokaio-playlist div.in > div.img:nth-child(3){
+    z-index: 1;
+    right: 0;
+    transform: scale(0.6);
+    transform-origin: right;
+    -webkit-filter: blur(0.1875rem);
+    filter: blur(0.375rem);
+}
+
+section.page-otiokaio-learn {
+    width: 100%;
+    min-height: 49rem;
+    float: left;
+    position: relative;
+}
+section.page-otiokaio-learn div.in .square {
+    background-color: #000;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: calc(24.5rem - 1.25rem);
+    margin-left: calc(50% - 14.09375rem);
+    transition: all 0.4s;
+}
+section.page-otiokaio-learn div.in .square .img {
+    background-size: 100%;
+    background-position: 0 80%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.4s;
+}
+section.page-otiokaio-learn div.in span:hover ~ .square .img {
+    opacity: 0.4;
+}
+section.page-otiokaio-learn div.in span:hover ~ .square {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    height: calc(49rem + 25rem + 5.9375rem);
+}
+section.page-otiokaio-learn div.in span {
+    width: 23.1875rem;
+    height: 6rem;
+    position: absolute;
+    line-height: 6rem;
+    font-size: 6rem;
+    top: 0;
+    left: 0;
+    margin-top: calc(24.5rem - 3rem);
+    margin-left: calc(50% - 14.09375rem + 5rem);
+    transition: all 0.4s;
+    color: #000;
+    z-index: 2;
+}
+body.dark section.page-otiokaio-learn div.in span {
+    color: white;
+}
+section.page-otiokaio-learn div.in span:hover {
+    margin-left: calc(50% - 14.09375rem + 2.5rem);
+    color: white;
+}
+
+section.contact-textarea {
+    width: 100%;
+    float: left;
+    padding: 9.25rem 0 9.6875rem;
+}
+section.contact-textarea form {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+section.contact-textarea .textarea {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 42px;
+    color: black;
+    font-size: 3.5rem;
+    line-height: 4rem;
+    transition: all 0.3s;
+    cursor: default;
+}
+body.dark section.contact-textarea .textarea {
+    color: white;
+}
+section.contact-textarea .textarea span {
+    color: #BFBFBF;
+    outline: 0;
+    min-width: 0.2rem;
+    display: inline-block;
+    cursor: text;
+    transition: color 0.3s;
+}
+section.contact-textarea .textarea span.focus {
+    color: black;
+}
+body.dark section.contact-textarea .textarea span {
+    color: #444;
+}
+body section.contact-textarea .textarea select {
+    background-color: transparent;
+    color: #BFBFBF;
+    border: 0;
+    box-shadow: none;
+}
+body.dark section.contact-textarea .textarea select {
+    color: #444;
+}
+section.contact-textarea button {
+    max-width: 12.8125rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: 4.8125rem;
+    float: left;
+}
+section.contact-textarea .feedback {
+    width: 100%;
+    float: left;
+    padding: 6rem 0;
+    display: none;
+}
+section.contact-textarea .feedback svg {
+    width: 4rem;
+    float: left;
+}
+section.contact-textarea .feedback span.title {
+    width: 100%;
+    float: left;
+    font-size: 2.5rem;
+    line-height: 2.6rem;
+    color: black;
+    margin-top: 1.4rem;
+}
+section.contact-textarea .feedback span.desc {
+    width: 100%;
+    float: left;
+    font-size: 1rem;
+    color: rgb(103, 103, 103);
+    margin-top: 0.3rem;
+}
+
+section.page-learn {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+}
+section.page-learn div.row {
+    min-height: 100vh;
+}
+section.page-learn div.row > div {
+    background-color: transparent;
+    min-height: 100vh;
+    padding-top: 9.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+    position: relative;
+}
+section.page-learn div.row > div:nth-child(2) {
+    background-color: #1C1C1C;
+}
+section.page-learn div.row > div .in {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+}
+section.page-learn div.row > div .in.active {
+    width: 100vw;
+    z-index: 3;
+    background-color: black;
+    left: 0;
+}
+section.page-learn div.row > div:nth-child(2) .in.active {
+    margin-left: -100%;
+}
+section.page-learn div.row > div:nth-child(3) .in.active {
+    margin-left: -200%;
+}
+section.page-learn div.row > div .in .base {
+    text-align: center;
+}
+section.page-learn div.row > div .in .page {
+    /* background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000000 41.15%, #000000 72.92%, #000000 100%); */
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+section.page-learn div.row > div .in .page::before {
+    content: '';
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000000 41.15%, #000000 72.92%, #000000 100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+section.page-learn div.row > div .in.active .page {
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+}
+section.page-learn div.row > div .in .page div.left {
+    width: 24.1875rem;
+    float: left;
+    margin: 8.3125rem 0 0 9.5rem;
+    position: relative;
+    z-index: 2;
+}
+section.page-learn div.row > div .in .page div.left img {
+    max-width: 100%;
+    max-height: 13rem;
+}
+section.page-learn div.row > div .in .page div.right button.back {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+section.page-learn div.row > div .in .page div.right button.back svg {
+    margin-right: 0.375rem;
+}
+section.page-learn div.row > div .in .page div.right {
+    width: 25.125rem;
+    float: right;
+    margin-right: 16.0625rem;
+    padding-top: 4.8125rem;
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay: 0.3s;
+    transform: translateX(7rem);
+    position: relative;
+    z-index: 2;
+}
+section.page-learn div.row > div .in.active .page div.right {
+    opacity: 1;
+    transform: translateX(0);
+}
+section.page-learn div.row > div .in .page div.right span.title {
+    width: 100%;
+    float: left;
+    margin-top: 4rem;
+    color: white;
+    font-size: 1.875rem;
+    line-height: 2.625rem;
+    font-weight: 450;
+}
+section.page-learn div.row > div .in .page div.right span.text {
+    width: 100%;
+    float: left;
+    margin-top: 3.0625rem;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.4063rem;
+    font-weight: 500;
+}
+section.page-learn div.row > div .in .page div.right form {
+    width: 100%;
+    float: left;
+    margin-top: 4.0625rem;
+}
+section.page-learn div.row > div .in .page div.right form input {
+    background-color: transparent;
+    max-width: 15.5rem;
+    height: 3.125rem;
+    padding: 0 1.25rem;
+    outline: 0;
+    border: 0.0625rem solid white;
+    float: left;
+    color: white;
+    border-radius: 0;
+}
+section.page-learn div.row > div .in .page div.right form {
+    margin-bottom: 0;
+}
+section.page-learn div.row > div .in .page div.right form .wpcf7-form-control-wrap {
+    float: left;
+}
+section.page-learn div.row > div .in .page div.right form .wpcf7-not-valid-tip {
+    font-size: 0.8125rem;
+}
+section.page-learn div.row > div .in .page div.right form .wpcf7-response-output {
+    margin-top: 0;
+    border: 0;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+section.page-learn div.row > div .in .page div.right form input[type="submit"]{
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 0;
+    border-radius: 0;
+}
+section.page-learn div.row > div .in .page div.right a.button {
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 0;
+    border-radius: 0;
+    text-decoration: none;
+    padding: 1.3rem 1.5625rem;
+    font-size: 1rem;
+    margin-top: 2.5rem;
+    float: left;
+    width: auto;
+    height: auto;
+}
+.mc4wp-response {
+    width: 100%;
+    float: left;
+    color: white;
+    margin-top: 1rem;
+}
+section.page-learn div.row > div .in.active .page {
+    opacity: 1;
+}
+section.page-learn div.row > div .in span.name {
+    width: 100%;
+    float: left;
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    transform: translateY(11rem);
+    opacity: 1;
+    transition: all 0.3s;
+}
+section.page-learn div.row > div:hover .in span.name {
+    transform: translateY(5rem);
+    -webkit-filter: blur(0.2rem);
+    filter: blur(0.2rem);
+    opacity: 0;
+}
+section.page-learn div.row > div .in .base > img {
+    width: 100%;
+    max-width: 21.625rem;
+    transform: translateY(0);
+    opacity: 0;
+    transition: all 0.4s;
+}
+section.page-learn div.row > div:hover .in .base > img {
+    transform: translateY(-5rem);
+    opacity: 1;
+}
+section.page-learn div.row > div .in .button-see {
+    background-color: transparent;
+    width: 9rem;
+    height: 9rem;
+    float: left;
+    margin-left: calc(50% - 4.5rem);
+    border: 0.0625rem solid white;
+    line-height: 9rem;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+    transform: translateY(2rem);
+    opacity: 0;
+    transition: all 0.4s;
+}
+section.page-learn div.row > div:hover .in .button-see {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+section.page-studio-phrase {
+    width: 100%;
+    float: left;
+    padding: 9.5rem 0 20rem 0;
+}
+section.page-studio-phrase h2 {
+    width: 100%;
+    float: left;
+    position: relative;
+    z-index: 2;
+    margin: 3.5rem 0 0 0;
+    color: black;
+    font-size: 6rem;
+    line-height: 8.4375rem;
+    font-weight: normal;
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: opacity 0.3s, transform 0.4s;
+}
+body.dark section.page-studio-phrase h2 {
+    color: white;
+}
+section.page-studio-phrase h2.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.page-studio-phrase h2 > span {
+    height: 8.5375rem;
+}
+section.page-studio-phrase .container {
+    position: relative;
+}
+section.page-studio-phrase .img {
+    width: 24rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 14.8125rem;
+    margin-right: 7rem;
+    z-index: 0;
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: opacity 0.4s;
+}
+section.page-studio-phrase .img.is-inview {
+    transform: translateY(0);
+    opacity: 0.9;
+}
+section.page-studio-phrase .img.img2 {
+    width: 280px;
+    margin-top: 50.6875rem;
+    margin-right: 39.5rem;
+}
+section.page-studio-phrase .img.img3 {
+    width: 280px;
+    margin-top: 84.125rem;
+    margin-right: 13.5rem;
+}
+
+section.page-studio-skill {
+    width: 100%;
+    float: left;
+    padding: 0 0 11.5rem 0;
+}
+section.page-studio-skill h2 span.base {
+    width: calc(100% - 6.625rem);
+    height: 1.4rem;
+    float: right;
+    margin-top: -0.2rem;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-weight: 400;
+}
+section.page-studio-skill h3 {
+    width: 100%;
+    float: left;
+    margin-top: 5.375rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 500;
+    color: black;
+    transition: color 0.3s ease-in-out 0s;
+    margin-bottom: 2.25rem;
+}
+section.page-studio-skill h3 span.base {
+    height: 2.8rem;
+}
+body.dark section.page-studio-skill h3 {
+    color: white;
+}
+section.page-studio-skill .cards {
+    opacity: 0;
+    transform: translateY(4rem);
+    transition: all 0.4s;
+    transition-delay: 2.8s;
+}
+section.page-studio-skill .cards.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.page-studio-skill div.card {
+    background-color: transparent;
+    width: 100%;
+    /* height: 4rem; */
+    float: left;
+    border: 0;
+    border-top: 0.125rem solid #999999;
+    transition: border-top 0.3s;
+    border-radius: 0;
+    outline: 0;
+    display: block;
+    cursor: pointer;
+    margin-top: 0.125rem;
+    margin-bottom: 0.3125rem;
+}
+section.page-studio-skill div.card:hover,
+section.page-studio-skill div.card.active {
+    border-top: 0.125rem solid black;
+}
+body.dark section.page-studio-skill div.card:hover,
+body.dark section.page-studio-skill div.card.active {
+    border-top: 0.125rem solid white;
+}
+section.page-studio-skill div.card .in {
+    background-color: white;
+    width: 100%;
+    height: 4rem;
+    float: left;
+    padding: 1.5rem 0;
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    overflow: hidden;
+    position: relative;
+}
+section.page-studio-skill div.card .in span.text {
+    width: 100%;
+    float: left;
+    margin-top: 1.5rem;
+    color: #444;
+    font-size: 0.875rem;
+    text-transform: none;
+    font-weight: 400;
+    line-height: 1.1875rem;
+    transition: all 0.3s;
+}
+body.dark section.page-studio-skill div.card .in span.text {
+    color: #999;
+}
+section.page-studio-skill div.card:hover .in {
+    z-index: 3;
+}
+section.page-studio-skill div.card.active .in {
+    height: 11.5rem;
+    z-index: 3;
+}
+body.dark section.page-studio-skill div.card .in {
+    color: white;
+    background-color: black;
+}
+section.page-studio-skill div.card .in span.plus-minus {
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    float: right;
+    margin-right: 0.25rem;
+    transition: all 0.4s;
+    transform: rotate(0deg);
+}
+section.page-studio-skill div.card .in span.plus-minus::before {
+    content: '';
+    background-color: black;
+    width: 0.125rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: calc(50% - 0.0625rem);
+    border-radius: 0.125rem;
+    transition: all 0.4s;
+    transform: rotate(0deg);
+}
+section.page-studio-skill div.card .in span.plus-minus::after {
+    content: '';
+    background-color: black;
+    width: 100%;
+    height: 0.125rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: calc(50% - 0.0625rem);
+    border-radius: 0.125rem;
+    transition: all 0.4s;
+    transform: rotate(0deg);
+}
+body.dark section.page-studio-skill div.card .in span.plus-minus::before,
+body.dark section.page-studio-skill div.card .in span.plus-minus::after {
+    background-color: white;
+}
+section.page-studio-skill div.card.active .in span.plus-minus {
+    transform: rotate(180deg);
+}
+section.page-studio-skill div.card.active .in span.plus-minus::before {
+    transform: rotate(90deg);
+}
+section.page-studio-brands {
+    width: 100%;
+    float: left;
+    margin: 9.5rem 0 14rem 0;
+}
+section.page-studio-brands .img {
+    width: 100%;
+    height: 7.625rem;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.page-studio-brands .row.brands > div > div.img {
+    opacity: 0.2;
+    transition: opacity 0.4s linear 1s;
+}
+section.page-studio-brands .row.brands > div:nth-child(-n+8) > div.img,
+section.page-studio-brands .row.brands > div:nth-last-child(-n+9) > div.img {
+    opacity: 0.4;
+}
+section.page-studio-brands .row.brands > div:nth-child(-n+4) > div.img,
+section.page-studio-brands .row.brands > div:nth-last-child(-n+5) > div.img {
+    opacity: 0.2;
+}
+section.page-studio-brands .row.brands > div > div.img.is-inview {
+    opacity: 1 !important;
+}
+section.page-studio-brands .img img {
+    max-width: 100%;
+    float: left;
+}
+body.contrast section.page-studio-brands .img img {
+    filter: contrast(0);
+}
+section.page-studio-brands h2 {
+    width: 100%;
+    float: left;
+    color: black;
+    transition: color 0.4s;
+    font-size: 6rem;
+    margin-top: 11.5rem;
+}
+body.dark section.page-studio-brands h2 {
+    color: white;
+}
+section.page-studio-method {
+    width: 100%;
+    float: left;
+    padding: 0 0 7.5rem 0;
+    margin: 11.5rem 0 0 0;
+    counter-reset: method-items;
+}
+section.page-studio-method h2 {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 6rem;
+    transition: color 0.4s;
+}
+section.page-studio-method h2 > span {
+    height: 6.7rem;
+}
+body.dark section.page-studio-method h2 {
+    color: white;
+}
+section.page-studio-method span.desc {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-weight: 500;
+    margin-top: 3rem;
+}
+section.page-studio-method .row.items {
+    margin-top: 0.75rem;
+}
+section.page-studio-method .row.items > div {
+    transition: all 0.4s;
+    opacity: 0;
+    transform: translateY(3rem);
+}
+section.page-studio-method .row.items > div:nth-child(2){
+    transition-delay: 0.3s;
+}
+section.page-studio-method .row.items > div:nth-child(3){
+    transition-delay: 0.6s;
+}
+section.page-studio-method .row.items > div:nth-child(4){
+    transition-delay: 0.9s;
+}
+section.page-studio-method .row.items > div.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.page-studio-method .item {
+    width: 100%;
+    float: left;
+    margin-top: 4.375rem;
+}
+section.page-studio-method span.number {
+    width: 100%;
+    float: left;
+    font-size: 6rem;
+    line-height: 6rem;
+    font-weight: 500;
+    color: black;
+    transition: color 0.4s;
+}
+body.dark section.page-studio-method span.number {
+    color: white;
+}
+section.page-studio-method span.title {
+    width: 100%;
+    max-width: 15.75rem;
+    float: left;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: black;
+    margin-top: 1rem;
+    transition: color 0.4s;
+}
+body.dark section.page-studio-method span.title {
+    color: white;
+}
+section.page-studio-method span.text {
+    width: 100%;
+    max-width: 19.2375rem;
+    float: left;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin-top: 1rem;
+    color: #666;
+    transition: color 0.4s;
+}
+section.page-studio-method span.number::before {
+    counter-increment: method-items;
+    content: "0" counter(method-items);
+}
+
+section.page-project-hero {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    position: relative;
+}
+section.page-project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+section.page-project-hero div.video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+section.page-project-hero iframe.player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+section.page-project-content {
+    min-height: 125rem;
+    width: 100%;
+    float: left;
+    padding: 3.875rem 0 0 0;
+}
+section.page-project-content .top span.title {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 2.5rem 0 0 0;
+}
+section.page-project-content .top span.value {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5rem 0 0 0;
+}
+section.page-project-content h2 {
+    width: 100%;
+    float: left;
+    margin-top: 1rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
+}
+section.page-project-content h2 > span.base {
+    height: 3rem;
+}
+section.page-project-content span.text {
+    width: 100%;
+    float: left;
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-weight: 400;
+    margin-top: 3.8125rem;
+}
+section.page-project-content span.text.top {
+    margin-bottom: 3.625rem;
+    transition: all 0.3s;
+    transition-delay: 1s;
+    opacity: 0;
+    transform: translateY(2rem);
+}
+section.page-project-content span.text.top.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.page-project-content .project img,
+section.page-project-content .project .video {
+    width: 100%;
+    margin: 2rem 0;
+}
+section.page-project-content div.video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+section.page-project-content iframe.player {
+    width: 100%;
+    height: 100%;
+  
+        object-fit: cover;
+
+      
+    position: absolute;
+}
+section.page-project-content iframe.macaco {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section.page-project-content .project span.title {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 5rem 0 0 0;
+    transition: all 0.3s;
+}
+section.page-project-content .project span.text {
+    width: 100%;
+    float: left;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 5rem 0 0 0;
+    transition: all 0.3s;
+}
+section.page-project-content .project .left span.text,
+section.page-project-content .project .center span.text,
+section.page-project-content .project .right span.text {
+    margin-top: 1rem;
+}
+section.page-project-content .project .feedback svg {
+    width: 3.5rem;
+    float: left;
+    margin-top: 11rem;
+    fill: black;
+    transition: all 0.3s;
+}
+body.dark section.page-project-content .project .feedback svg {
+    color: white;
+}
+section.page-project-content .project .feedback span.title {
+    margin-top: 1.5rem;
+}
+body.dark section.page-project-content .project span.title {
+    color: white;
+}
+section.page-project-content .project .feedback span.text {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 6rem;
+}
+body.dark section.page-project-content .project span.text {
+    color: white;
+}
+section.page-project-content img,
+section.page-project-content div.video,
+section.page-project-content span.title,
+section.page-project-content span.text {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 0.3s;
+}
+section.page-project-content img.is-inview,
+section.page-project-content div.video.is-inview,
+section.page-project-content span.title,
+section.page-project-content span.text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 992px){
+    section.page-learn div.row > div .in .page div.right form input {
+        max-width: 10rem;
+    }
+    section.page-learn div.row > div .in .page div.right {
+        padding-top: 1rem;
+    }
+    section.page-learn div.row > div .in .page div.right span.title {
+        margin-top: 2.3rem;
+    }
+    section.page-learn div.row > div .in .page div.right span.text {
+        margin-top: 2rem;
+    }
+    section.page-learn div.row > div .in .page div.right form {
+        margin-top: 2rem;
+    }
+    section.page-learn div.row > div .in .page::before {
+        background-image: linear-gradient(178.77deg, rgba(0, 0, 0, 0) -10.84%, #000000 64.92%);
+        position: fixed;
+    }
+    html, body {
+        font-size: 16px;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+    header {
+        height: 56px;
+        background-color: white;
+        box-shadow: 0 1px 0 #F2F2F2;
+        position: fixed;
+    }
+    header div.menu-main {
+        width: 2rem;
+        height: 2rem;
+        background-color: black !important;
+        margin-top: 12px;
+        margin-right: 1rem;
+    }
+    header.min div.menu-main {
+        margin-top: 12px;
+    }
+    body.menu header div.menu-main:not(.close) {
+        height: 100vh;
+    }
+    div.menu .top {
+        height: 56px;
+    }
+    div.menu div.menu-main {
+        width: 2rem;
+        height: 2rem;
+        margin-top: 12px;
+    }
+    div.menu .content ul {
+        margin-top: 40px;
+    }
+    div.menu .content ul li {
+        font-size: 24px;
+        text-align: center;
+        line-height: 24px;
+        margin-top: 48px;
+    }
+    div.menu .content ul li a {
+        color: white;
+    }
+    div.menu {
+        position: fixed;
+    }
+    div.menu div.social {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+    }
+    div.menu div.social a {
+        font-size: 12px;
+    }
+    footer h2 {
+        line-height: 64px;
+    }
+    footer h2 > span {
+        height: 70px;
+    }
+    footer h2 > span > span {
+        text-align: center;
+    }
+    section.page-project-content {
+        padding-top: 0;
+    }
+    section.page-project-content span.title.about {
+        margin-top: 32px;
+        font-weight: 600;
+        float: left;
+    }
+    section.page-project-content span.text {
+        margin-top: 32px;
+    }
+    section.page-project-content .project span.text {
+        margin-top: 32px;
+    }
+    header.min {
+        height: 56px;
+    }
+    header .logo,
+    header.min .logo {
+        margin-top: 18px;
+        color: black !important;
+    }
+    body.dark header .logo {
+        color: white !important;
+    }
+    body.dark:not(.menu) header div.menu-main {
+        background-color: white !important;
+    }
+    footer div.links:nth-child(1) {
+        width: 100%;
+        margin-top: 72px;
+        text-align: center;
+    }
+    footer div.links:nth-child(2) {
+        width: 100%;
+        margin-top: 72px;
+        text-align: center;
+    }
+    footer span.credits {
+        width: 100%;
+        text-align: center;
+    }
+    footer span.privacy {
+        width: 100%;
+        text-align: center;
+        margin-top: 24px;
+    }
+    section.hero h2 {
+        font-size: 56px;
+        line-height: 56px;
+    }
+    .effect > span {
+        height: 60px;
+    }
+    section.projects {
+        height: auto;
+        padding: 0 1rem;
+        padding-top: 128px;
+    }
+    section.projects .cards {
+        height: auto;
+    }
+    section.projects .section {
+        height: auto;
+    }
+    section.projects h2 {
+        padding-left: 0;
+    }
+    section.projects .cards .item {
+        width: 100%;
+        margin-top: 48px;
+        margin-left: 0;
+        height: auto;
+    }
+    section.projects .section {
+        overflow: auto;
+        display: block;
+    }
+    section.projects .cards .item .img {
+        width: 100%;
+        height: 180px;
+        margin-left: 0;
+        display: block;
+        margin-bottom: 52px;
+    }
+    a.button {
+        width: 100%;
+    }
+    section.projects .button {
+        width: 100%;
+    }
+    section.projects .cards .item .img div.texts {
+        width: 100%;
+        margin: 0;
+        margin-top: 196px;
+        display: flex;
+    }
+    section.projects .cards .item .texts span.number {
+        order: 2;
+        text-align: right;
+    }
+    section.projects .cards .item .texts h3 {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: bold;
+        margin: 0;
+        -webkit-text-stroke: 0 white;
+        -webkit-text-fill-color: black;
+    }
+    section.projects .cards .item:first-of-type,
+    section.projects .cards .item:last-of-type {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    section.projects .cards {
+        display: block;
+    }
+    section.phrase h2 {
+        font-size: 52px;
+        line-height: 67px;
+    }
+    section.phrase h2 > span {
+        min-height: 74px;
+        height: auto;
+    }
+    section.phrase h2 > span > span {
+        height: 74px;
+    }
+    footer {
+        padding-bottom: 24px;
+    }
+    footer h2 {
+        font-size: 64px;
+    }
+    section.otiokaio .img {
+        height: 290px;
+        margin-top: 40px;
+    }
+    section.otiokaio h3.text {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    section.otiokaio h3.text > span {
+        height: 32px;
+    }
+    section.otiokaio span.text {
+        width: 100%;
+        margin-top: 32px;
+        margin-bottom: 56px;
+    }
+    section.otiokaio .base-button {
+        width: 100%;
+    }
+    section.projects-list {
+        padding-top: 122px;
+    }
+    section.projects-list ul {
+        border-top: 0;
+        margin-top: 42px;
+    }
+    section.projects-list span.text {
+        width: 100%;
+        float: left;
+        margin-top: 32px;
+    }
+    section.projects-list ul li {
+        border-top: 0;
+        margin-top: 48px;
+    }
+    section.projects-list ul li div.in {
+        border-bottom: 0;
+    }
+    section.projects-list ul li div.in .img {
+        width: 100%;
+        height: 180px;
+        position: relative;
+        opacity: 1;
+        transform: translate(0, 0);
+        margin: 0;
+    }
+    section.projects-list ul li div.in h3 {
+        float: left;
+        font-size: 24px;
+        width: auto;
+        margin: 0;
+        line-height: 24px;
+        margin-top: 16px;
+        -webkit-text-stroke: 0 white;
+        -webkit-text-fill-color: black;
+    }
+    section.projects-list ul li div.in span.number {
+        float: right;
+        width: auto;
+        margin: 0;
+        margin-top: 19px;
+    }
+    section.page-otiokaio-hero h2 {
+        font-size: 88px !important;
+    }
+    body.translatepress-en_US section.page-otiokaio-hero h2 {
+        font-size: 78px !important;
+    }
+    body header.otiokaio {
+        background-color: white !important;
+    }
+    section.page-otiokaio-hero {
+        height: 100vh;
+    }
+    section.page-otiokaio-where {
+        padding-top: 3rem;
+    }
+    section.page-otiokaio-hero .img {
+        box-shadow: none !important;
+    }
+    section.page-otiokaio-where h3 {
+        margin-top: 24px;
+    }
+    section.page-otiokaio-where .text {
+        width: 100%;
+        float: left;
+        padding: 18px 24px;
+        color: #FFFFFF;
+        text-align: center;
+        border: 1px solid #FFFFFF;
+        font-size: 16px;
+        margin: 0;
+        margin-bottom: 247px;
+    }
+    section.page-otiokaio-watch img {
+        height: auto;
+    }
+    section.page-otiokaio-where .social,
+    section.page-otiokaio-watch .social {
+        margin-top: 56px;
+    }
+    section.page-otiokaio-where .social a,
+    section.page-otiokaio-watch .social a {
+        width: calc(50% - 8px);
+        padding: 29px 24px;
+        height: auto;
+        float: left;
+        color: white;
+        font-size: 16px;
+        text-align: center !important;
+        border: 1px solid white;
+        margin: 0;
+    }
+    section.page-otiokaio-watch .social a:nth-child(2){
+        margin-left: 16px;
+    }
+    body:not(.dark) section.page-otiokaio-where .social a,
+    body:not(.dark) section.page-otiokaio-watch .social a {
+        border: 1px solid black;
+        color: black;
+    }
+    section.page-otiokaio-playlist {
+        min-height: 0;
+        height: auto;
+        margin-top: 216px;
+    }
+    section.page-otiokaio-playlist h3 {
+        font-size: 32px;
+        line-height: 32px;
+        margin-top: 24px;
+    }
+    section.page-otiokaio-playlist span.text {
+        margin-top: 24px;
+        font-size: 1rem;
+    }
+    section.page-otiokaio-playlist div.in > div.img {
+        width: 250px;
+        height: 250px;
+    }
+    section.page-otiokaio-playlist div.in {
+        height: 250px;
+        margin-top: 56px;
+    }
+    section.page-otiokaio-learn div.in .square .img {
+        opacity: 0.4;
+        background-size: 139%;
+        background-position: 56% 17%;
+    }
+    section.page-otiokaio-learn div.in .square .img {
+        background-repeat: no-repeat;
+    }
+    section.page-otiokaio-learn div.in .square {
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+        height: calc(100vh + 25rem + 5.9375rem);
+    }
+    section.page-otiokaio-learn {
+        height: 640px;
+        margin-top: 148px;
+    }
+    section.page-otiokaio-learn div.in span {
+        width: 100%;
+        text-align: center;
+        font-size: 32px;
+        margin-left: 0;
+        color: white;
+        margin-top: 250px;
+    }
+    section.page-studio-phrase h2 {
+        font-size: 48px;
+        line-height: 67px;
+    }
+    section.page-studio-phrase h2 > span {
+        min-height: 73px;
+        height: auto;
+    }
+    section.page-studio-phrase h2 > span > span {
+        height: 73px;
+    }
+    section.page-studio-phrase .img {
+        width: 142px;
+        margin-top: 68px;
+        margin-right: 16px;
+    }
+    section.page-studio-phrase .img.img2 {
+        width: 142px;
+        margin-top: 442px;
+        margin-right: 109px;
+    }
+    section.page-studio-phrase .img.img3 {
+        width: 168px;
+        margin-top: 1238px;
+        margin-right: 38px;
+    }
+    section.page-studio-skill h2.title {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    section.page-studio-skill h2 span.base {
+        width: calc(100% - 36px);
+    }
+    section.page-studio-skill h2 span.base {
+        min-height: 32px;
+        height: auto !important;
+    }
+    section.page-studio-skill h2 span.base {
+        height: 32px;
+    }
+    section.page-studio-brands h2 {
+        font-size: 48px;
+        line-height: 48px;
+    }
+    section.page-studio-method h2 {
+        font-size: 48px;
+        line-height: 48px;
+    }
+    section.page-studio-method h2 > span {
+        height: 55px;
+    }
+    section.page-studio-phrase {
+        padding-top: 90px;
+    }
+    section.contact-textarea .textarea {
+        font-size: 32px;
+        line-height: 37px;
+    }
+    footer span.desc {
+        margin-bottom: 96px;
+    }
+    footer h2.thin {
+        font-size: 120px;
+        line-height: 120px;
+    }
+    footer .item-value {
+        width: 100%;
+        font-size: 80px;
+        line-height: 80px;
+        word-wrap: break-word
+    }
+    body.dark.page-template-partsotiokaio-php header .logo,
+    body.dark.page-template-partslearn-php header .logo,
+    body.dark.single-projeto header .logo {
+        color: black !important;
+    }
+    body.dark:not(.menu).page-template-partsotiokaio-php header div.menu-main,
+    body.dark:not(.menu).page-template-partslearn-php header div.menu-main,
+    body.dark:not(.menu).single-projeto header div.menu-main {
+        background-color: black !important;
+    }
+    body.dark.page-template-partsotiokaio-php header div.translate a:hover,
+    body.dark.page-template-partsotiokaio-php header div.translate a.active,
+    body.dark.page-template-partslearn-php header div.translate a:hover,
+    body.dark.page-template-partslearn-php header div.translate a.active,
+    body.dark.single-projeto header div.translate a:hover,
+    body.dark.single-projeto header div.translate a.active {
+        color: black
+    }
+    section.page-otiokaio-hero .img {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: 100vh !important;
+    }
+    section.page-otiokaio-hero .img img {
+        object-fit: cover;
+    }
+    section.page-otiokaio-hero .img .overflow {
+        border-radius: 0;
+    }
+    section.page-otiokaio-hero .img:after {
+        display: none;
+    }
+    body.single-projeto header {
+        background-color: white;
+    }
+    section.page-project-hero {
+        margin-top: 3.5rem;
+        height: 18.75rem;
+        min-height: 0;
+    }
+    section.page-project-hero img {
+        height: 18.75rem;
+    }
+    section.page-learn div.row > div .in .page div.left,
+    section.page-learn div.row > div .in .page div.right {
+        width: 100%;
+        margin: 0;
+    }
+    section.page-learn div.row > div .in .page {
+        padding: 2rem;
+    }
+    section.page-learn div.row > div .in .base {
+        opacity: 1;
+        height: auto;
+    }
+    section.page-learn div.row > div .in.active .base {
+        /* height: 0; */
+        overflow: hidden;
+        transition: all 0.3s;
+        opacity: 0;
+    }
+    section.page-learn div.row > div {
+        padding: 5rem 0;
+        min-height: 0;
+        height: 38rem;
+    }
+    section.page-learn div.row > div .in {
+        position: relative;
+        height: 28rem;
+    }
+    section.page-learn div.row > div .in .page {
+        background-size: cover, 100%;
+        background-position: top left;
+        background-color: black;
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+        top: 0;
+        left: 0;
+    }
+    section.page-learn div.row > div .in.active {
+        height: auto;
+    }
+    section.page-learn div.row > div .in span.name {
+        opacity: 0;
+    }
+    section.page-learn div.row > div .in .base > img {
+        opacity: 1;
+        transform: translateY(-5rem);
+    }
+    section.page-learn div.row > div .in .button-see {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    section.page-learn div.row > div:nth-child(2) .in.active {
+        margin-left: 0;
+    }
+    section.page-learn div.row > div:nth-child(3) .in.active {
+        margin-left: 0;
+    }
+    section.page-learn div.row > div .in,
+    section.page-learn div.row > div {
+        position: inherit;
+    }
+    section.page-learn div.row > div .in .page div.left {
+        display: none;
+    }
+}
+@media screen and (min-width: 992px) and (orientation: portrait){
+    section.page-project-hero {
+        min-height: 47.5rem;
+    }
+    section.projects .section {
+        overflow: hidden;
+    }
+    section.projects {
+        height: auto;
+        min-height: 0;
+        padding: 0 1rem;
+        padding-top: 128px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    section.projects .cards {
+        height: auto;
+    }
+    section.projects .section {
+        height: auto;
+    }
+    section.projects h2 {
+        padding-left: 0;
+        width: 60%;
+    }
+    section.projects .cards .item {
+        width: 60%;
+        margin-top: 48px;
+        margin-left: 0;
+        height: auto;
+    }
+    section.projects .section {
+        overflow: auto;
+        display: block;
+    }
+    section.projects .cards .item .img {
+        width: 100%;
+        height: 25rem;
+        margin-left: 0;
+        display: block;
+        margin-bottom: 3.25rem;
+    }
+    a.button {
+        width: 100%;
+    }
+    section.projects .button {
+        width: 100%;
+    }
+    section.projects .cards .item .img div.texts {
+        width: 100%;
+        margin: 0;
+        margin-top: 26.25rem;
+        display: flex;
+    }
+    section.projects .cards .item .texts span.number {
+        order: 2;
+        text-align: right;
+    }
+    section.projects .cards .item .texts h3 {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: bold;
+        margin: 0;
+        -webkit-text-stroke: 0 white;
+        -webkit-text-fill-color: black;
+    }
+    section.projects .cards .item:first-of-type,
+    section.projects .cards .item:last-of-type {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    section.projects .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    section.projects .section {
+        overflow: hidden;
+    }
+    section.projects .cards .item .texts div.title {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    body.tablet section.page-project-hero {
+        min-height: 47.5rem;
+    }
+    body.tablet section.projects .section {
+        overflow: hidden;
+    }
+    body.tablet section.projects {
+        height: auto;
+        min-height: 0;
+        padding: 0 1rem;
+        padding-top: 128px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    body.tablet section.projects .cards {
+        height: auto;
+    }
+    body.tablet section.projects .section {
+        height: auto;
+    }
+    body.tablet section.projects h2 {
+        padding-left: 0;
+        width: 60%;
+    }
+    body.tablet section.projects .cards .item {
+        width: 60%;
+        margin-top: 48px;
+        margin-left: 0;
+        height: auto;
+    }
+    body.tablet section.projects .section {
+        overflow: auto;
+        display: block;
+    }
+    body.tablet section.projects .cards .item .img {
+        width: 100%;
+        height: 25rem;
+        margin-left: 0;
+        display: block;
+        margin-bottom: 3.25rem;
+    }
+    body.tablet a.button {
+        width: 100%;
+    }
+    body.tablet section.projects .button {
+        width: 100%;
+    }
+    body.tablet section.projects .cards .item .img div.texts {
+        width: 100%;
+        margin: 0;
+        margin-top: 26.25rem;
+        display: flex;
+    }
+    body.tablet section.projects .cards .item .texts span.number {
+        order: 2;
+        text-align: right;
+    }
+    body.tablet section.projects .cards .item .texts h3 {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: bold;
+        margin: 0;
+        -webkit-text-stroke: 0 white;
+        -webkit-text-fill-color: black;
+    }
+    body.tablet section.projects .cards .item:first-of-type,
+    body.tablet section.projects .cards .item:last-of-type {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    body.tablet section.projects .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    body.tablet section.projects .section {
+        overflow: hidden;
+    }
+    body.tablet section.projects .cards .item .texts div.title {
+        display: none;
+    }
+}
+
+.swiper-button-next, .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.89);
+    width: 3.125rem;
+    height: 3.125rem;
+    color: black !important;
+    backdrop-filter: blur(0.5rem);
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.3rem;
+}

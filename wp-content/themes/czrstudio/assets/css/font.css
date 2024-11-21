@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'CS Book';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BookItalic.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-Black.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BoldItalic.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../font/CS-Book.woff') format('woff2'),
+        url('../font/CS-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BlackItalic.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../font/CS-Bold.woff') format('woff2'),
+        url('../font/CS-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../font/CircularSpotifyText-Light.woff') format('woff2'),
+        url('../font/CircularSpotifyText-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('../font/CS-Medium.woff') format('woff2'),
+        url('../font/CS-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CircularSpotifyText-LightItalic.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CircularSpotifyText-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-MediumItalic.woff2') format('woff2'),
+        url('https://czrstudio.com/wp-content/themes/czrstudio/assets/font/CS-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}

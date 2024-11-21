@@ -1,0 +1,34 @@
+# Specific redirections
+if ($args ~* ^lang=en$){ rewrite ^/contato$ /contato/lang-en? permanent; }
+if ($args ~* ^lang=pt$){ rewrite ^/contato$ /contato/lang-pt? permanent; }
+if ($args ~* ^lang=en$){ rewrite ^/projetos$ /projetos/lang-en? permanent; }
+if ($args ~* ^lang=pt$){ rewrite ^/projetos$ /projetos/lang-pt? permanent; }
+if ($args ~* ^lang=en$){ rewrite ^/studio$ /studio/lang-en? permanent; }
+if ($args ~* ^lang=pt$){ rewrite ^/studio$ /studio/lang-pt? permanent; }
+
+# Create pretty URLs
+rewrite ^/([^/]+)$ /$1.html last;
+rewrite ^/([^/]+)/([^/]+)$ /$1/$2.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5/$6.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5/$6/$7.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5/$6/$7/$8.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5/$6/$7/$8/$9.html last;
+rewrite ^/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ /$1/$2/$3/$4/$5/$6/$7/$8/$9/$10.html last;
+# End: Create pretty URLs
+
+# Redirect all extensions to html
+if ($is_args = ''){
+	rewrite ^([^.]*)\.shtml$ $1.html permanent;
+	rewrite ^([^.]*)\.phtml$ $1.html permanent;
+	rewrite ^([^.]*)\.jhtml$ $1.html permanent;
+	rewrite ^([^.]*)\.htm$ $1.html permanent;
+	rewrite ^([^.]*)\.php$ $1.html permanent;
+	rewrite ^([^.]*)\.aspx$ $1.html permanent;
+	rewrite ^([^.]*)\.asp$ $1.html permanent;
+	rewrite ^([^.]*)\.jsp$ $1.html permanent;
+	rewrite ^([^.]*)\.apk$ $1.html permanent;
+}
+# End: Redirect all extensions to html
